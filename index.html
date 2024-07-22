@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur de Coût Projet ITSI-Production</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Simulateur de Coût Projet ITSI-Production</h2>
+    <p><b>Bienvenue dans le simulateur de coût de projet ITSI-Production.</b></p>
+    <p  style="font-size: 14px;">Modifiez les quantités ainsi que les options pour estimer votre coût en crédits ainsi que le prix ht et ttc estimé. Les remises au volume s'appliqueront de façon automatique en fonction des tranches.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Catégorie</th>
+                <th>Quantité</th>
+                <th>Prix/U en crédits</th>
+                <th>Coef</th>
+                <th>Total coût en crédits</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nombre de techniciens équipe principale</td>
+                <td><input type="number" id="tech_qty" class="input-cell" value="20" oninput="calculateTotal()"></td>
+                <td>2</td>
+                <td>1</td>
+                <td id="tech_total"><span class="bubble" id="tech_bubble">0 crédits</span></td>
+            </tr>
+            <tr>
+                <td>Nombre d'artistes équipe principale</td>
+                <td><input type="number" id="artist_qty" class="input-cell" value="12" oninput="calculateTotal()"></td>
+                <td>2</td>
+                <td>1</td>
+                <td id="artist_total"><span class="bubble" id="artist_bubble">0 crédits</span></td>
+            </tr>
+            <tr>
+                <td>Nombre de techniciens renfort*</td>
+                <td><input type="number" id="renfort_qty" class="input-cell" value="8" oninput="calculateTotal()"></td>
+                <td>2</td>
+                <td>0.66</td>
+                <td id="renfort_total"><span class="bubble" id="renfort_bubble">0 crédits</span></td>
+            </tr>
+            <tr>
+                <td>Nombre de cachet figuration**</td>
+                <td><input type="number" id="figuration_qty" class="input-cell" value="20" oninput="calculateTotal()"></td>
+                <td>2</td>
+                <td>0.75</td>
+                <td id="figuration_total"><span class="bubble" id="figuration_bubble">0 crédits</span></td>
+            </tr>
+            <tr>
+                <td>Nombre de semaines (prépa/tournage/post)</td>
+                <td><input type="number" id="weeks_qty" class="input-cell" value="5" oninput="calculateTotal()"></td>
+                <td>1</td>
+                <td>5</td>
+                <td id="weeks_total"><span class="bubble" id="weeks_bubble">0 crédits</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <p  style="font-size: 12px;color: #6c757d;">* Un coefficiant de 0,66 a été appliqué afin d'affiner l'estimation.<br>
+    ** Un coefficiant de 0,75 a été appliqué afin d'affiner l'estimation.</p>
+
+    <h3>Autres options</h3>
+    <form>
+        <label class="checkbox-container">
+            Signatures électroniques
+            <input type="checkbox" id="option_signature" onclick="calculateTotal()">
+            <span class="checkmark"></span>
+            <span class="bubble" id="signature_bubble">0 crédits</span>
+        </label>
+        <label class="checkbox-container">
+            Feuilles de temps
+            <input type="checkbox" id="option_feuilles" onclick="toggleSignatureFeuilles(); calculateTotal()">
+            <span class="checkmark"></span>
+            <span class="bubble" id="feuilles_bubble">0 crédits</span>
+        </label>
+        <div id="signature_feuilles_container" style="display: none;">
+            <label class="checkbox-container">
+                Signatures électroniques des feuilles de temps
+                <input type="checkbox" id="option_signature_feuilles" onclick="calculateTotal()">
+                <span class="checkmark"></span>
+                <span class="bubble" id="signature_feuilles_bubble">0 crédits</span>
+            </label>
+        </div>
+        <label class="checkbox-container">
+            Contrats spéciaux (à fournir par votre service juridique)***
+            <input type="checkbox" id="option_contrats" onclick="calculateTotal()">
+            <span class="checkmark"></span>
+            <span class="bubble" id="contrats_bubble">0 crédits</span>
+        </label>
+        <label class="checkbox-container">
+            Traitement de la paie (avec notre partenaire POP PAYE)****
+            <input type="checkbox" id="option_paie" onclick="calculateTotal()">
+            <span class="checkmark"></span>
+            <span class="bubble" id="paie_bubble">0 crédits</span>
+        </label>
+    </form>
+
+    <p  style="font-size: 12px;color: #6c757d;">*** Un délai de 15 jours est nécessaire à sa mise en place. Le coût de 150 crédits est forfaitaire et sera déduit de votre solde crédit disponible. Assurez-vous que votre solde soit suffisamment.<br>
+    **** Un délai est nécessaire à sa mise en place. Le coût de 20 crédits est indicatif. Aucun crédit ne sera déduit pour le service paie. Ce service est externalisé et confié à notre partenaire de confiance POP PAYE.</p>
+
+<div id="total_cost_euros_ht">
+    <span id="total_cost_credits">Total crédits : 0 crédits</span><br>
+    <br>
+    <span id="subtotal_euros_ht" style="font-size: 16px;">Sous total € HT : 0 € HT</span><br>
+    <span id="tranche_coef" style="font-size: 16px;">Coef Tranche 1 : 1,00</span><br>
+    <br>
+    <b id="total_euros_ht" style="font-size: 25px;">Total € HT : 0,00 € HT</b>
+</div>
+
+
+
+    <h3>Estimation coût en euros TTC</h3>
+    <p id="total_cost_euros_ttc" style="font-size: 25px;">Total: 0 € TTC</p>
+</div>
+
+<!-- Inclure le fichier pricing.js -->
+<script src="pricing.js"></script>
+<!-- Inclure le fichier script.js -->
+<script src="script.js"></script>
+
+</body>
+</html>

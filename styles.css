@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px; 
+    font-size: 1.2em;
+    color: #35334D;
+
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #35334D;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #35334D;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+p2 {
+    color: #35334D;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #35334D;
+    color: #ffffff;
+}
+
+.input-cell {
+    width: 80%;
+    padding: 6px;
+    box-sizing: border-box;
+    background-color: #C1D6E2;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+}
+
+h3 {
+    color: #343a40;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #495057;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+    color: #495057;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #F8F7F9;
+    border: 1px solid #D0CFDC;
+    border-radius: 8px;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #0E547C;
+    border-color: #0E547C;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 3.5px;
+    top: 1px;
+    width: 6px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.bubble {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-left: 10px;
+    background-color: #F8F7F9;
+    color: #35334D;
+    border-radius: 10px;
+    font-size: 0.8em;
+    float: right;
+}
+#total_cost_euros_ht {
+    display: block;
+    font-size: 1.2em;
+    font-weight: normal;
+    color: #35334D;
+    text-align: right;
+    margin-top: 10px;
+    padding: 10px;
+    padding-right: 50px;
+    background-color: #F8F7F9;
+    border-radius: 20px;
+}
+
+#total_cost_euros_ttc {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0B410B;
+    text-align: right;
+    margin-top: 10px;
+    padding: 10px;
+    padding-right: 50px;
+    background-color: #E5EEE1;
+    border-radius: 20px;
+}

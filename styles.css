@@ -14,7 +14,7 @@ body {
     padding: 20px;
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; /* Ajout de cette ligne pour permettre le défilement horizontal */
+    overflow: hidden; /* Empêche le dépassement du contenu */
 }
 
 h2 {
@@ -29,12 +29,20 @@ p {
     margin-bottom: 20px;
 }
 
+.table-container {
+    border-radius: 8px; /* Appliquer l'arrondi ici */
+    overflow: hidden; /* Assure que le contenu respecte les bords arrondis */
+    margin-bottom: 20px;
+}
+
+.table-scroll {
+    overflow-x: auto; /* Permettre le défilement horizontal */
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    overflow: hidden;
+    margin: 0; /* Supprimer la marge par défaut */
 }
 
 th, td {
@@ -128,12 +136,12 @@ label {
 .bubble {
     display: inline-block;
     padding: 5px 10px;
-    margin-left: 10px;
     background-color: #F8F7F9;
     color: #35334D;
     border-radius: 10px;
     font-size: 0.8em;
-    float: right;
+    margin-left: auto;
+    margin-right: 0; /* Assure que les bulles se placent à droite */
 }
 
 #total_cost_euros_ht {

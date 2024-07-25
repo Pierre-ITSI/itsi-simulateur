@@ -11,57 +11,62 @@
 <div class="container">
     <h2>Simulateur de Coût Projet ITSI-Production</h2>
     <p><b>Bienvenue dans le simulateur de coût de projet ITSI-Production.</b></p>
-    <p  style="font-size: 14px;">Modifiez les quantités ainsi que les options pour estimer votre coût en crédits ainsi que le prix ht et ttc estimé. Les remises au volume s'appliqueront de façon automatique en fonction des tranches.</p>
+    <p style="font-size: 14px;">Modifiez les quantités ainsi que les options pour estimer votre coût en crédits ainsi que le prix ht et ttc estimé. Les remises au volume s'appliqueront de façon automatique en fonction des tranches.</p>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Catégorie</th>
-                <th>Quantité</th>
-                <th>Prix/U en crédits</th>
-                <th>Coef</th>
-                <th>Total coût en crédits</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Nombre de techniciens équipe principale</td>
-                <td><input type="number" id="tech_qty" class="input-cell" value="0" oninput="calculateTotal()"></td>
-                <td>2</td>
-                <td>1</td>
-                <td id="tech_total"><span class="bubble" id="tech_bubble">0 crédits</span></td>
-            </tr>
-            <tr>
-                <td>Nombre d'artistes équipe principale</td>
-                <td><input type="number" id="artist_qty" class="input-cell" value="0" oninput="calculateTotal()"></td>
-                <td>2</td>
-                <td>1</td>
-                <td id="artist_total"><span class="bubble" id="artist_bubble">0 crédits</span></td>
-            </tr>
-            <tr>
-                <td>Nombre de techniciens renfort*</td>
-                <td><input type="number" id="renfort_qty" class="input-cell" value="0" oninput="calculateTotal()"></td>
-                <td>2</td>
-                <td>0.66</td>
-                <td id="renfort_total"><span class="bubble" id="renfort_bubble">0 crédits</span></td>
-            </tr>
-            <tr>
-                <td>Nombre de cachet figuration**</td>
-                <td><input type="number" id="figuration_qty" class="input-cell" value="0" oninput="calculateTotal()"></td>
-                <td>2</td>
-                <td>0.75</td>
-                <td id="figuration_total"><span class="bubble" id="figuration_bubble">0 crédits</span></td>
-            </tr>
-            <tr>
-                <td>Nombre de semaines (prépa/tournage/post)</td>
-                <td><input type="number" id="weeks_qty" class="input-cell" value="1" oninput="calculateTotal()"></td>
-                <td>1</td>
-                <td>5</td>
-                <td id="weeks_total"><span class="bubble" id="weeks_bubble">0 crédits</span></td>
-            </tr>
-        </tbody>
-    </table>
-    <p  style="font-size: 12px;color: #6c757d;">* Un coefficiant de 0,66 a été appliqué afin d'affiner l'estimation.<br>
+    <div class="table-container">
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Catégorie</th>
+                        <th>Quantité</th>
+                        <th>Prix/U en crédits</th>
+                        <th>Coef</th>
+                        <th>Total coût en crédits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nombre de techniciens équipe principale</td>
+                        <td><input type="number" id="tech_qty" class="input-cell" value="0" oninput="calculateTotal()"></td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td id="tech_total"><span class="bubble" id="tech_bubble">0 crédits</span></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre d'artistes équipe principale</td>
+                        <td><input type="number" id="artist_qty" class="input-cell" value="0" oninput="calculateTotal()"></td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td id="artist_total"><span class="bubble" id="artist_bubble">0 crédits</span></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre de techniciens renfort*</td>
+                        <td><input type="number" id="renfort_qty" class="input-cell" value="0" oninput="calculateTotal()"></td>
+                        <td>2</td>
+                        <td>0.66</td>
+                        <td id="renfort_total"><span class="bubble" id="renfort_bubble">0 crédits</span></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre de cachet figuration**</td>
+                        <td><input type="number" id="figuration_qty" class="input-cell" value="0" oninput="calculateTotal()"></td>
+                        <td>2</td>
+                        <td>0.75</td>
+                        <td id="figuration_total"><span class="bubble" id="figuration_bubble">0 crédits</span></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre de semaines (prépa/tournage/post)</td>
+                        <td><input type="number" id="weeks_qty" class="input-cell" value="1" oninput="calculateTotal()"></td>
+                        <td>1</td>
+                        <td>5</td>
+                        <td id="weeks_total"><span class="bubble" id="weeks_bubble">0 crédits</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p style="font-size: 12px;color: #6c757d;">* Un coefficiant de 0,66 a été appliqué afin d'affiner l'estimation.<br>
     ** Un coefficiant de 0,75 a été appliqué afin d'affiner l'estimation.</p>
 
     <h3>Autres options</h3>
@@ -100,19 +105,17 @@
         </label>
     </form>
 
-    <p  style="font-size: 12px;color: #6c757d;">*** Un délai de 15 jours est nécessaire à sa mise en place. Le coût de 150 crédits est forfaitaire et sera déduit de votre solde crédit disponible. Assurez-vous que votre solde soit suffisamment.<br>
+    <p style="font-size: 12px;color: #6c757d;">*** Un délai de 15 jours est nécessaire à sa mise en place. Le coût de 150 crédits est forfaitaire et sera déduit de votre solde crédit disponible. Assurez-vous que votre solde soit suffisamment.<br>
     **** Un délai est nécessaire à sa mise en place. Le coût de 20 crédits est indicatif. Aucun crédit ne sera déduit pour le service paie. Ce service est externalisé et confié à notre partenaire de confiance POP PAYE.</p>
 
-<div id="total_cost_euros_ht">
-    <span id="total_cost_credits">Total crédits : 0 crédits</span><br>
-    <br>
-    <span id="subtotal_euros_ht" style="font-size: 16px;">Sous total € HT : 0 € HT</span><br>
-    <span id="tranche_coef" style="font-size: 16px;">Coef Tranche 1 : 1,00</span><br>
-    <br>
-    <b id="total_euros_ht" style="font-size: 25px;">Total € HT : 0,00 € HT</b>
-</div>
-
-
+    <div id="total_cost_euros_ht">
+        <span id="total_cost_credits">Total crédits : 0 crédits</span><br>
+        <br>
+        <span id="subtotal_euros_ht" style="font-size: 16px;">Sous total € HT : 0 € HT</span><br>
+        <span id="tranche_coef" style="font-size: 16px;">Coef Tranche 1 : 1,00</span><br>
+        <br>
+        <b id="total_euros_ht" style="font-size: 25px;">Total € HT : 0,00 € HT</b>
+    </div>
 
     <h3>Estimation coût en euros TTC</h3>
     <p id="total_cost_euros_ttc" style="font-size: 25px;">Total: 0 € TTC</p>

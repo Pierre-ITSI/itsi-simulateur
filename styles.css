@@ -10,9 +10,10 @@ body {
 .container {
     max-width: 100%;
     margin: 0 auto;
-    border-radius: 40px;
     background-color: #ffffff;
-    padding: 20px;    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow-x: auto; /* Ajout de cette ligne pour permettre le défilement horizontal */
 }
 
@@ -125,13 +126,14 @@ label {
 }
 
 .bubble {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-left: 10px;
     background-color: #F8F7F9;
     color: #35334D;
     border-radius: 10px;
     font-size: 0.8em;
-    padding: 5px 10px;
-    margin-left: auto;
-    margin-right: 0; /* Ajoute cette ligne pour s'assurer que les bulles se placent à droite */
+    float: right;
 }
 
 #total_cost_euros_ht {

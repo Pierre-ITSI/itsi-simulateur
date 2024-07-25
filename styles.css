@@ -3,7 +3,7 @@ body {
     background-color: #f8f9fa;
     margin: 0;
     padding: 20px;
-    font-size: 1em; /* Ajustement de la taille du texte par défaut */
+    font-size: 1em; 
     color: #35334D;
 }
 
@@ -14,7 +14,7 @@ body {
     padding: 20px;
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Empêche le dépassement du contenu */
+    overflow: hidden; 
 }
 
 h2 {
@@ -30,26 +30,27 @@ p {
 }
 
 .table-container {
-    border-radius: 8px; /* Appliquer l'arrondi ici */
-    overflow: hidden; /* Assure que le contenu respecte les bords arrondis */
+    border-radius: 8px; 
+    border: 1px solid #dee2e6;
+    overflow: hidden; 
     margin-bottom: 20px;
 }
 
 .table-scroll {
-    overflow-x: auto; /* Permettre le défilement horizontal */
+    overflow-x: auto; 
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 0; /* Supprimer la marge par défaut */
+    outline: 1px solid #dee2e6;
+    margin: 0; 
 }
 
 th, td {
-    border: 1px solid #dee2e6;
     padding: 12px;
     text-align: left;
-    word-wrap: break-word; /* Assurer que le texte se divise correctement */
+    word-wrap: break-word; 
 }
 
 th {
@@ -58,7 +59,7 @@ th {
 }
 
 .input-cell {
-    width: 100%; /* Ajustement de la largeur par défaut */
+    width: 100%;
     padding: 6px;
     box-sizing: border-box;
     background-color: #C1D6E2;
@@ -86,7 +87,12 @@ label {
     cursor: pointer;
     font-size: 16px;
     user-select: none;
-    color: #495057;
+    color: #495057;    transition: background-color 0.3s ease; 
+}
+
+.checkbox-container:hover {
+    background-color: #F8F7F9; 
+    border-radius: 8px;
 }
 
 .checkbox-container input {
@@ -141,7 +147,7 @@ label {
     border-radius: 10px;
     font-size: 0.8em;
     margin-left: auto;
-    margin-right: 0; /* Assure que les bulles se placent à droite */
+    margin-right: 0; 
 }
 
 #total_cost_euros_ht {

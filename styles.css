@@ -2,19 +2,18 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     margin: 0;
-    padding: 20px; 
-    font-size: 1.2em;
+    padding: 20px;
+    font-size: 1em; /* Ajustement de la taille du texte par défaut */
     color: #35334D;
-
 }
 
 .container {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
+    border-radius: 40px;
     background-color: #ffffff;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Ajout de cette ligne pour permettre le défilement horizontal */
 }
 
 h2 {
@@ -29,13 +28,6 @@ p {
     margin-bottom: 20px;
 }
 
-p2 {
-    color: #35334D;
-    text-align: left;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -48,6 +40,7 @@ th, td {
     border: 1px solid #dee2e6;
     padding: 12px;
     text-align: left;
+    word-wrap: break-word; /* Assurer que le texte se divise correctement */
 }
 
 th {
@@ -56,7 +49,7 @@ th {
 }
 
 .input-cell {
-    width: 80%;
+    width: 100%; /* Ajustement de la largeur par défaut */
     padding: 6px;
     box-sizing: border-box;
     background-color: #C1D6E2;
@@ -132,15 +125,15 @@ label {
 }
 
 .bubble {
-    display: inline-block;
-    padding: 5px 10px;
-    margin-left: 10px;
     background-color: #F8F7F9;
     color: #35334D;
     border-radius: 10px;
     font-size: 0.8em;
-    float: right;
+    padding: 5px 10px;
+    margin-left: auto;
+    margin-right: 0; /* Ajoute cette ligne pour s'assurer que les bulles se placent à droite */
 }
+
 #total_cost_euros_ht {
     display: block;
     font-size: 1.2em;
@@ -149,7 +142,6 @@ label {
     text-align: right;
     margin-top: 10px;
     padding: 10px;
-    padding-right: 50px;
     background-color: #F8F7F9;
     border-radius: 20px;
 }
@@ -164,4 +156,33 @@ label {
     padding-right: 50px;
     background-color: #E5EEE1;
     border-radius: 20px;
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px;
+    }
+
+    th, td {
+        padding: 16px;
+    }
+
+    .input-cell {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 960px;
+    }
+
+    th, td {
+        padding: 20px;
+    }
+
+    .input-cell {
+        width: 80%;
+    }
 }

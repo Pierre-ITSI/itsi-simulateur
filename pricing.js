@@ -1,12 +1,12 @@
 // Table des tranches de crédits et tarifs
 const tranches = [
     {id: 1, min: 0, max: 100, coef: 1.00},
-    {id: 2, min: 100, max: 200, coef: 1.04},
-    {id: 3, min: 200, max: 300, coef: 1.06},
-    {id: 4, min: 300, max: 500, coef: 1.08},
-    {id: 5, min: 500, max: 1000, coef: 1.10},
-    {id: 6, min: 1000, max: 2000, coef: 1.14},
-    {id: 7, min: 2000, max: Infinity, coef: 1.18}
+    {id: 2, min: 100, max: 200, coef: 1.02},
+    {id: 3, min: 200, max: 500, coef: 1.05},
+    {id: 4, min: 500, max: 1000, coef: 1.08},
+    {id: 5, min: 1000, max: 2000, coef: 1.10},
+    {id: 6, min: 2000, max: 5000, coef: 1.12},
+    {id: 7, min: 5000, max: Infinity, coef: 1.12}
 ];
 
 /**

@@ -23,7 +23,7 @@ function calculateTotal() {
     const feuilles_de_temps = document.getElementById('option_feuilles').checked && !document.getElementById('option_signature_feuilles').checked ? Math.ceil((weeks_qty - 1) * (tech_qty + renfort_qty) * 1) : 0;
     const signatures_electroniques_feuilles = document.getElementById('option_signature_feuilles').checked ? Math.ceil((weeks_qty - 1) * (tech_qty + renfort_qty) * 3) : 0;
     const contrats_speciaux = document.getElementById('option_contrats').checked ? 150 : 0;
-    const traitement_paie = document.getElementById('option_paie').checked ? Math.ceil(weeks_qty * (tech_qty + artist_qty + renfort_qty + figuration_qty) * 20) : 0;
+    const traitement_paie = document.getElementById('option_paie').checked ? Math.ceil(weeks_qty * (tech_qty + artist_qty + renfort_qty + figuration_qty) * 16) : 0;
 
     const total_cost = total_credits + signatures_electroniques + feuilles_de_temps + signatures_electroniques_feuilles + contrats_speciaux + traitement_paie;
 

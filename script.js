@@ -5,11 +5,19 @@ function calculateTotal() {
     const figuration_qty = parseFloat(document.getElementById('figuration_qty').value) || 0;
     const weeks_qty = parseFloat(document.getElementById('weeks_qty').value) || 0;
 
-    const tech_price_credit = Math.ceil(3);
-    const artist_price_credit = Math.ceil(3);
-    const renfort_price_credit = Math.ceil(3);
-    const figuration_price_credit = Math.ceil(3);
-    const weeks_price_credit = Math.ceil(0);
+    // Obtenir les prix depuis le fichier pricing.js
+    const tech_price_credit = window.tech_price_credit;
+    const artist_price_credit = window.artist_price_credit;
+    const renfort_price_credit = window.renfort_price_credit;
+    const figuration_price_credit = window.figuration_price_credit;
+    const weeks_price_credit = window.weeks_price_credit;
+
+    // Mise à jour des cellules de prix
+    document.getElementById('tech_price_cell').innerText = tech_price_credit;
+    document.getElementById('artist_price_cell').innerText = artist_price_credit;
+    document.getElementById('renfort_price_cell').innerText = renfort_price_credit;
+    document.getElementById('figuration_price_cell').innerText = figuration_price_credit;
+    document.getElementById('weeks_price_cell').innerText = weeks_price_credit;
     
     const tech_coef = Math.ceil(tech_qty * 1);
     const artist_coef = Math.ceil(artist_qty * 1);

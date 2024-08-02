@@ -11,16 +11,16 @@ function calculateTotal() {
     const figuration_coef = Math.ceil(figuration_qty * 0.75);
     const weeks_coef = Math.ceil(weeks_qty * 5);
 
-    const tech_total = Math.ceil(tech_qty * 2 * 1);
-    const artist_total = Math.ceil(artist_qty * 2 * 1);
-    const renfort_total = Math.ceil(renfort_qty * 2 * 0.66);
-    const figuration_total = Math.ceil(figuration_qty * 2 * 0.75);
-    const weeks_total = Math.ceil(weeks_qty * 1 * 5);
+    const tech_total = Math.ceil(tech_qty * 3 * 1);
+    const artist_total = Math.ceil(artist_qty * 3 * 1);
+    const renfort_total = Math.ceil(renfort_qty * 3 * 0.66);
+    const figuration_total = Math.ceil(figuration_qty * 3 * 0.75);
+    const weeks_total = Math.ceil(weeks_qty * 1 * 0);
 
     const total_credits = tech_total + artist_total + renfort_total + figuration_total + weeks_total;
 
     const signatures_electroniques = document.getElementById('option_signature').checked ? Math.ceil((tech_qty + artist_qty + renfort_coef + figuration_coef) * 2) : 0;
-    const feuilles_de_temps = document.getElementById('option_feuilles').checked && !document.getElementById('option_signature_feuilles').checked ? Math.ceil((weeks_qty - 1) * (tech_qty + renfort_qty) * 1) : 0;
+    const feuilles_de_temps = document.getElementById('option_feuilles').checked && !document.getElementById('option_signature_feuilles').checked ? Math.ceil((weeks_qty - 1) * (tech_qty + renfort_qty) * 2) : 0;
     const signatures_electroniques_feuilles = document.getElementById('option_signature_feuilles').checked ? Math.ceil((weeks_qty - 1) * (tech_qty + renfort_qty) * 3) : 0;
     const contrats_speciaux = document.getElementById('option_contrats').checked ? 150 : 0;
     const traitement_paie = document.getElementById('option_paie').checked ? Math.ceil(weeks_qty * (tech_qty + artist_qty + renfort_qty + figuration_qty) * 16) : 0;

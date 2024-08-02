@@ -5,17 +5,23 @@ function calculateTotal() {
     const figuration_qty = parseFloat(document.getElementById('figuration_qty').value) || 0;
     const weeks_qty = parseFloat(document.getElementById('weeks_qty').value) || 0;
 
+    const tech_price_credit = Math.ceil(3);
+    const artist_price_credit = Math.ceil(3);
+    const renfort_price_credit = Math.ceil(3);
+    const figuration_price_credit = Math.ceil(3);
+    const weeks_price_credit = Math.ceil(0);
+    
     const tech_coef = Math.ceil(tech_qty * 1);
     const artist_coef = Math.ceil(artist_qty * 1);
     const renfort_coef = Math.ceil(renfort_qty * 0.66);
     const figuration_coef = Math.ceil(figuration_qty * 0.75);
     const weeks_coef = Math.ceil(weeks_qty * 0);
 
-    const tech_total = Math.ceil(tech_qty * 3 * 1);
-    const artist_total = Math.ceil(artist_qty * 3 * 1);
-    const renfort_total = Math.ceil(renfort_qty * 3 * 0.66);
-    const figuration_total = Math.ceil(figuration_qty * 3 * 0.75);
-    const weeks_total = Math.ceil(weeks_qty * 1 * 0);
+    const tech_total = Math.ceil(tech_qty * tech_price_credit * 1);
+    const artist_total = Math.ceil(artist_qty * artist_price_credit * 1);
+    const renfort_total = Math.ceil(renfort_qty * renfort_price_credit * 0.66);
+    const figuration_total = Math.ceil(figuration_qty * figuration_price_credit * 0.75);
+    const weeks_total = Math.ceil(weeks_qty * weeks_price_credit * 1);
 
     const total_credits = tech_total + artist_total + renfort_total + figuration_total + weeks_total;
 

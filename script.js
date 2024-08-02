@@ -9,7 +9,7 @@ function calculateTotal() {
     const artist_coef = Math.ceil(artist_qty * 1);
     const renfort_coef = Math.ceil(renfort_qty * 0.66);
     const figuration_coef = Math.ceil(figuration_qty * 0.75);
-    const weeks_coef = Math.ceil(weeks_qty * 5);
+    const weeks_coef = Math.ceil(weeks_qty * 0);
 
     const tech_total = Math.ceil(tech_qty * 3 * 1);
     const artist_total = Math.ceil(artist_qty * 3 * 1);

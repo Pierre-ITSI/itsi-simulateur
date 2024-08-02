@@ -42,6 +42,20 @@ function calculateTotalWithDiscount(total_credits, tvaRate = 0.2) {
     };
 }
 
+// Définir les constantes de prix
+    const tech_price_credit = 3;
+    const artist_price_credit = 3;
+    const renfort_price_credit = 3;
+    const figuration_price_credit = 3;
+    const weeks_price_credit = 0;
+
+// Rendre les constantes disponibles globalement
+    window.tech_price_credit = tech_price_credit;
+    window.artist_price_credit = artist_price_credit;
+    window.renfort_price_credit = renfort_price_credit;
+    window.figuration_price_credit = figuration_price_credit;
+    window.weeks_price_credit = weeks_price_credit;
+
 // Rendre les fonctions disponibles globalement
-window.calculateTotalWithDiscount = calculateTotalWithDiscount;
-window.determineTranche = determineTranche;
+    window.calculateTotalWithDiscount = calculateTotalWithDiscount;
+    window.determineTranche = determineTranche;

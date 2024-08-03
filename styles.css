@@ -80,18 +80,20 @@ label {
 
 .checkbox-container {
     display: flex;
-    align-items: center;
+    align-items: center; /* Center vertically */
     margin-bottom: 15px;
     position: relative;
-    padding-left: 30px;
+    padding-left: 30px; /* Adjust based on the size of the checkmark */
     cursor: pointer;
     font-size: 16px;
     user-select: none;
-    color: #495057;    transition: background-color 0.3s ease; 
+    color: #495057;
+    transition: background-color 0.3s ease;
+    justify-content: center; /* Center items horizontally */
 }
 
 .checkbox-container:hover {
-    background-color: #F8F7F9; 
+    background-color: #F8F7F9;
     border-radius: 8px;
 }
 
@@ -105,8 +107,9 @@ label {
 
 .checkmark {
     position: absolute;
-    top: 0;
+    top: 50%; /* Center vertically */
     left: 0;
+    transform: translateY(-50%); /* Adjust to be perfectly centered */
     height: 15px;
     width: 15px;
     background-color: #F8F7F9;

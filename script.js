@@ -29,7 +29,7 @@ function calculateTotal() {
     const artist_total = Math.ceil(artist_qty * artist_price_credit * 1);
     const renfort_total = Math.ceil(renfort_qty * renfort_price_credit * 0.66);
     const figuration_total = Math.ceil(figuration_qty * figuration_price_credit * 0.75);
-    const weeks_total = Math.ceil(weeks_qty * 1);
+    const weeks_total = Math.ceil(weeks_qty * weeks_price_credit * 1);
 
     const total_credits = tech_total + artist_total + renfort_total + figuration_total + weeks_total;
 

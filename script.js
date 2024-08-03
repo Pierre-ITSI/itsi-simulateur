@@ -35,7 +35,7 @@ function calculateTotal() {
 
     const signatures_electroniques = document.getElementById('option_signature').checked ? Math.ceil((tech_qty + artist_qty + renfort_coef + figuration_coef) * 2) : 0;
     const feuilles_de_temps = document.getElementById('option_feuilles').checked && !document.getElementById('option_signature_feuilles').checked ? Math.ceil((weeks_qty - 1) * (tech_qty + renfort_qty) * 2) : 0;
-    const signatures_electroniques_feuilles = document.getElementById('option_signature_feuilles').checked ? Math.ceil((weeks_qty - 1) * (tech_qty + renfort_qty) * 3) : 0;
+    const signatures_electroniques_feuilles = document.getElementById('option_signature_feuilles').checked ? Math.ceil((weeks_qty) * (tech_qty + renfort_qty) * 3) : 0;
     const contrats_speciaux = document.getElementById('option_contrats').checked ? 150 : 0;
     const traitement_paie = document.getElementById('option_paie').checked ? Math.ceil(weeks_qty * (tech_qty + artist_qty + renfort_qty + figuration_qty) * 16) : 0;
 

@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    max-width: 100%;
+    max-width: 800%;
     margin: 0 auto;
     background-color: #ffffff;
     padding: 20px;
@@ -18,13 +18,11 @@ body {
 }
 
 h2 {
-    color: #35334D;
     text-align: center;
     margin-bottom: 20px;
 }
 
 p {
-    color: #35334D;
     text-align: left;
     margin-bottom: 20px;
 }
@@ -68,7 +66,6 @@ th {
 }
 
 h3 {
-    color: #343a40;
     margin-top: 20px;
 }
 
@@ -78,18 +75,128 @@ label {
     color: #495057;
 }
 
+/* Switch styles */
+.switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #35334D;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: white;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    background-color: #35334D;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.container.dark-mode {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.table-container.dark-mode,
+.bubble.dark-mode {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+#total_cost_euros_ht.dark-mode {
+    background-color: #333;
+    color: #e0e0e0;
+    border-radius: 20px;
+}
+
+#total_cost_euros_ttc.dark-mode {
+    background-color: #284833;
+    color: #E5EEE1;
+    border-radius: 20px;
+}
+
+.checkbox-container.dark-mode .checkmark {
+    background-color: #555;
+    border-color: #777;
+    color: #fff;
+}
+
+.checkbox-container.dark-mode input:checked ~ .checkmark {
+    background-color: #35334D;
+    border-color: #284833;
+}
+
+.checkbox-container.dark-mode {
+    color: #e0e0e0;
+}
+
+.checkbox-container.dark-mode:hover {
+    background-color: #444;
+}
+
+.info-icon.dark-mode {
+    background-color: #555;
+    color: #e0e0e0;
+    border-color: #777;
+}
+
+.info-icon.dark-mode:hover::after {
+    background-color: #333;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
 .checkbox-container {
     display: flex;
-    align-items: center; /* Center vertically */
+    align-items: center;
     margin-bottom: 15px;
     position: relative;
-    padding-left: 30px; /* Adjust based on the size of the checkmark */
+    padding-left: 30px;
     cursor: pointer;
     font-size: 16px;
     user-select: none;
     color: #495057;
     transition: background-color 0.3s ease;
-    justify-content: center; /* Center items horizontally */
+    justify-content: center;
+    border-radius: 8px;
 }
 
 .checkbox-container:hover {
@@ -107,9 +214,9 @@ label {
 
 .checkmark {
     position: absolute;
-    top: 50%; /* Center vertically */
+    top: 50%;
     left: 0;
-    transform: translateY(-50%); /* Adjust to be perfectly centered */
+    transform: translateY(-50%);
     height: 15px;
     width: 15px;
     background-color: #F8F7F9;
@@ -140,6 +247,52 @@ label {
     border: solid white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
+}
+
+/* Styles des icônes d'information */
+.info-icon {
+    display: inline-block;
+    margin-left: 10px;
+    background-color: #fff;
+    border: 1px solid #D0CFDC;
+    color: #35334D;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    line-height: 12px;
+    font-size: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.info-icon:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    font-size: 15px;
+    line-height: 120%;
+    bottom: 150%;
+    transform: translateX(-10%);
+    background-color: #fff;
+    border: 1px solid #D0CFDC;
+    color: #35334D;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+    max-width: 400px;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.info-icon::after {
+    content: "";
+    opacity: 0;
+    transition: opacity 0.3s;
+    max-width: 400px;
 }
 
 .bubble {
@@ -204,4 +357,23 @@ label {
     .input-cell {
         width: 80%;
     }
+}
+
+/* Styles for dark mode toggle */
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+.dark-mode-toggle p {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+body.dark-mode .dark-mode-toggle p {
+    color: #e0e0e0;
 }

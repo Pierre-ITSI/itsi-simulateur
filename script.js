@@ -127,6 +127,8 @@ function toggleSignatureFeuilles() {
     }
 }
 
+
+
 // Attacher les fonctions au window pour les rendre globales
 window.calculateTotal = calculateTotal;
 window.toggleSignatureFeuilles = toggleSignatureFeuilles;
@@ -135,6 +137,8 @@ window.toggleSignatureFeuilles = toggleSignatureFeuilles;
 window.addEventListener('load', (event) => {
     calculateTotal();
 });
+
+
 
 // Add event listeners for initial calculation
 document.getElementById('tech_qty').addEventListener('input', calculateTotal);
@@ -150,3 +154,73 @@ document.getElementById('option_feuilles').addEventListener('change', () => {
 document.getElementById('option_signature_feuilles').addEventListener('change', calculateTotal);
 document.getElementById('option_contrats').addEventListener('change', calculateTotal);
 document.getElementById('option_paie').addEventListener('change', calculateTotal);
+
+
+
+//Info tooltip //
+document.addEventListener('DOMContentLoaded', () => {
+    const infoIcons = document.querySelectorAll('.info-icon');
+
+    infoIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', () => {
+            const tooltipText = icon.getAttribute('data-tooltip');
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.innerText = tooltipText;
+            document.body.appendChild(tooltip);
+
+            const rect = icon.getBoundingClientRect();
+            tooltip.style.left = `${rect.left + window.scrollX + rect.width / 2 - tooltip.offsetWidth / 2}px`;
+            tooltip.style.top = `${rect.top + window.scrollY - tooltip.offsetHeight - 10}px`;
+
+            icon._tooltip = tooltip;
+        });
+
+        icon.addEventListener('mouseleave', () => {
+            document.body.removeChild(icon._tooltip);
+            icon._tooltip = null;
+        });
+    });
+});
+    
+
+    //Dark Mode//
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeSwitch = document.getElementById('darkModeSwitch');
+
+    // Check if dark mode is already enabled
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        enableDarkMode();
+        darkModeSwitch.checked = true;
+    }
+
+    darkModeSwitch.addEventListener('change', () => {
+        if (darkModeSwitch.checked) {
+            enableDarkMode();
+        } else {
+            disableDarkMode();
+        }
+    });
+
+    function enableDarkMode() {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.container').classList.add('dark-mode');
+        document.querySelectorAll('.bubble').forEach(el => el.classList.add('dark-mode'));
+        document.querySelectorAll('.checkbox-container').forEach(el => el.classList.add('dark-mode'));
+        document.querySelectorAll('.info-icon').forEach(el => el.classList.add('dark-mode'));
+        document.getElementById('total_cost_euros_ht').classList.add('dark-mode');
+        document.getElementById('total_cost_euros_ttc').classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+    }
+
+    function disableDarkMode() {
+        document.body.classList.remove('dark-mode');
+        document.querySelector('.container').classList.remove('dark-mode');
+        document.querySelectorAll('.bubble').forEach(el => el.classList.remove('dark-mode'));
+        document.querySelectorAll('.checkbox-container').forEach(el => el.classList.remove('dark-mode'));
+        document.querySelectorAll('.info-icon').forEach(el => el.classList.remove('dark-mode'));
+        document.getElementById('total_cost_euros_ht').classList.remove('dark-mode');
+        document.getElementById('total_cost_euros_ttc').classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+    }
+});

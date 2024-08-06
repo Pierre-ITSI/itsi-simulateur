@@ -79,14 +79,14 @@
     <form>
         <label class="checkbox-container">
             Signatures électroniques
-            <input type="checkbox" id="option_signature" onclick="calculateTotal()">
+            <input type="checkbox" id="option_signature" onclick="calculateTotal()" checked >
             <span class="checkmark"></span>
             <span class="info-icon" data-tooltip="Les signatures électroniques sont réellement facturées a l'unité lorsqu'elles sont demandées. Vous avez toujours la possibilité d'imprimer vos contrats et de les faire signer manuellement.">i</span>
             <span class="bubble" id="signature_bubble">0 crédits</span>
         </label>
         <label class="checkbox-container">
             Feuilles de temps
-            <input type="checkbox" id="option_feuilles" onclick="toggleSignatureFeuilles(); calculateTotal()">
+            <input type="checkbox" id="option_feuilles" onclick="toggleSignatureFeuilles(); calculateTotal()" checked >
             <span class="checkmark"></span>
             <span class="info-icon" data-tooltip="La première feuille d'heure est toujours offerte avec un contrat de travail. Les suivantes coûtent deux crédits/unité.">i</span>
             <span class="bubble" id="feuilles_bubble">0 crédits</span>

@@ -11,7 +11,7 @@ function calculateTotal() {
     const renfort_price_credit = window.renfort_price_credit;
     const figuration_price_credit = window.figuration_price_credit;
     const weeks_price_credit = window.weeks_price_credit;
-
+  
     // Mise à jour des cellules de prix
     document.getElementById('tech_price_cell').innerText = tech_price_credit;
     document.getElementById('artist_price_cell').innerText = artist_price_credit;
@@ -19,28 +19,30 @@ function calculateTotal() {
     document.getElementById('figuration_price_cell').innerText = figuration_price_credit;
     document.getElementById('weeks_price_cell').innerText = weeks_price_credit;
     
-    const tech_coef = Math.ceil(tech_qty * 1);
-    const artist_coef = Math.ceil(artist_qty * 1);
-    const renfort_coef = Math.ceil(renfort_qty * 0.66);
-    const figuration_coef = Math.ceil(figuration_qty * 0.75);
-    const weeks_coef = Math.ceil(weeks_qty * 0);
+    const renfort_input = parseFloat(document.getElementById('renfort_input').value) || 0.66;
+    const figu_input = parseFloat(document.getElementById('figu_input').value) || 0.75;
 
-    const tech_total = Math.ceil(tech_qty * tech_price_credit * 1);
-    const artist_total = Math.ceil(artist_qty * artist_price_credit * 1);
-    const renfort_total = Math.ceil(renfort_qty * renfort_price_credit * 0.66);
-    const figuration_total = Math.ceil(figuration_qty * figuration_price_credit * 0.75);
-    const weeks_total = Math.ceil(weeks_qty * weeks_price_credit * 1);
+    const tech_coef = tech_qty * 1;
+    const artist_coef = artist_qty * 1;
+    const renfort_coef = renfort_qty * renfort_input;
+    const figuration_coef = figuration_qty * figu_input;
+    const weeks_coef = weeks_qty * 0;
+
+    const tech_total = Math.round(tech_qty * tech_price_credit * 1);
+    const artist_total = Math.round(artist_qty * artist_price_credit * 1);
+    const renfort_total = Math.round(renfort_qty * renfort_price_credit * renfort_input);
+    const figuration_total = Math.round(figuration_qty * figuration_price_credit * figu_input);
+    const weeks_total = Math.round(weeks_qty * weeks_price_credit * 1);
 
     const total_credits = tech_total + artist_total + renfort_total + figuration_total + weeks_total;
 
-    const signatures_electroniques = document.getElementById('option_signature').checked ? Math.ceil((tech_qty + artist_qty + renfort_coef + figuration_coef) * 2) : 0;
-    const feuilles_de_temps = document.getElementById('option_feuilles').checked && !document.getElementById('option_signature_feuilles').checked ? Math.ceil((weeks_qty - 1) * (tech_qty + renfort_qty) * 2) : 0;
-    const signatures_electroniques_feuilles = document.getElementById('option_signature_feuilles').checked ? Math.ceil((weeks_qty) * (tech_qty + renfort_qty) * 3) : 0;
+    const signatures_electroniques = document.getElementById('option_signature').checked ? (tech_qty + artist_qty + renfort_qty + figuration_qty) * 2 : 0;
+    const feuilles_de_temps = document.getElementById('option_feuilles').checked && !document.getElementById('option_signature_feuilles').checked ? (weeks_qty - 1) * (tech_qty + renfort_qty) * 2 : 0;
+    const signatures_electroniques_feuilles = document.getElementById('option_signature_feuilles').checked ? (weeks_qty) * (tech_qty + renfort_qty) * 3 : 0;
     const contrats_speciaux = document.getElementById('option_contrats').checked ? 150 : 0;
-    const traitement_paie = document.getElementById('option_paie').checked ? Math.ceil(weeks_qty * (tech_qty + artist_qty + renfort_qty + figuration_qty) * 16) : 0;
+    const traitement_paie = document.getElementById('option_paie').checked ? (weeks_qty * (tech_qty + artist_qty + renfort_qty + figuration_qty) * 16) : 0;
 
     const total_cost = total_credits + signatures_electroniques + feuilles_de_temps + signatures_electroniques_feuilles + contrats_speciaux + traitement_paie;
-
     // Calculer le total HT, la TVA et le total TTC avec les remises sur volume
     const tranche = determineTranche(total_cost);
     const tranche1 = tranches[0];

@@ -292,7 +292,6 @@ body.dark-mode {
     content: "";
     opacity: 0;
     transition: opacity 0.3s;
-    max-width: 400px;
 }
 
 .bubble {

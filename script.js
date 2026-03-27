@@ -37,7 +37,20 @@ function calculateTotal() {
 
     const total_credits = tech_total + artist_total + renfort_total + figuration_total + weeks_total;
 
-    const signatures_electroniques = document.getElementById('option_signature').checked ? (tech_qty + artist_qty + renfort_qty + figuration_qty) * 2 : 0;
+    // Désactiver la signature électronique si les contrats sont gérés par un tiers
+    const signatureCheckbox = document.getElementById('option_signature');
+    const signatureLabel = signatureCheckbox.closest('label');
+    if (contrats_tiers) {
+        signatureCheckbox.checked = false;
+        signatureCheckbox.disabled = true;
+        if (signatureLabel) signatureLabel.style.opacity = '0.4';
+        if (signatureLabel) signatureLabel.style.pointerEvents = 'none';
+    } else {
+        signatureCheckbox.disabled = false;
+        if (signatureLabel) signatureLabel.style.opacity = '';
+        if (signatureLabel) signatureLabel.style.pointerEvents = '';
+    }
+    const signatures_electroniques = (!contrats_tiers && signatureCheckbox.checked) ? (tech_qty + artist_qty + renfort_qty + figuration_qty) * 2 : 0;
     const feuilles_de_temps = document.getElementById('option_feuilles').checked && !document.getElementById('option_signature_feuilles').checked ? weeks_qty * (tech_qty + renfort_qty) * 2 : 0;
     const signatures_electroniques_feuilles = document.getElementById('option_signature_feuilles').checked ? (weeks_qty) * (tech_qty + renfort_qty) * 3 : 0;
     const contrats_speciaux = document.getElementById('option_contrats').checked ? 150 : 0;

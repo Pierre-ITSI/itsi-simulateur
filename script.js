@@ -28,10 +28,11 @@ function calculateTotal() {
     const figuration_coef = figuration_qty * figu_input;
     const weeks_coef = weeks_qty * 0;
 
-    const tech_total = Math.round(tech_qty * tech_price_credit * 1);
-    const artist_total = Math.round(artist_qty * artist_price_credit * 1);
-    const renfort_total = Math.round(renfort_qty * renfort_price_credit * renfort_input);
-    const figuration_total = Math.round(figuration_qty * figuration_price_credit * figu_input);
+    const contrats_tiers = document.getElementById('option_contrats_tiers').checked;
+    const tech_total = contrats_tiers ? 0 : Math.round(tech_qty * tech_price_credit * 1);
+    const artist_total = contrats_tiers ? 0 : Math.round(artist_qty * artist_price_credit * 1);
+    const renfort_total = contrats_tiers ? 0 : Math.round(renfort_qty * renfort_price_credit * renfort_input);
+    const figuration_total = contrats_tiers ? 0 : Math.round(figuration_qty * figuration_price_credit * figu_input);
     const weeks_total = Math.round(weeks_qty * weeks_price_credit * 1);
 
     const total_credits = tech_total + artist_total + renfort_total + figuration_total + weeks_total;
@@ -74,6 +75,7 @@ function calculateTotal() {
     const feuilles_bubble = document.getElementById('feuilles_bubble');
     const signature_feuilles_bubble = document.getElementById('signature_feuilles_bubble');
     const contrats_bubble = document.getElementById('contrats_bubble');
+    const contrats_tiers_bubble = document.getElementById('contrats_tiers_bubble');
     const paie_bubble = document.getElementById('paie_bubble');
 
     if (tech_bubble) tech_bubble.innerText = `${tech_total} crédits`;
@@ -86,6 +88,7 @@ function calculateTotal() {
     if (feuilles_bubble) feuilles_bubble.innerText = `${feuilles_de_temps} crédits`;
     if (signature_feuilles_bubble) signature_feuilles_bubble.innerText = `${signatures_electroniques_feuilles} crédits`;
     if (contrats_bubble) contrats_bubble.innerText = `${contrats_speciaux} crédits`;
+    if (contrats_tiers_bubble) contrats_tiers_bubble.innerText = contrats_tiers ? `gratuit` : `0 crédits`;
     if (paie_bubble) paie_bubble.innerText = `${traitement_paie} crédits`;
 
     const total_cost_el = document.getElementById('total_cost');

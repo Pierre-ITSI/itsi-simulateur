@@ -106,6 +106,13 @@
             <span class="bubble" id="contrats_bubble">0 crédits</span>
         </label>
         <label class="checkbox-container">
+            Contrats gérés par un service tiers ; activer la gratuité
+            <input type="checkbox" id="option_contrats_tiers" onclick="calculateTotal()">
+            <span class="checkmark"></span>
+            <span class="info-icon" data-tooltip="Si vos contrats sont gérés par un service tiers, les crédits liés aux contrats (techniciens, artistes, renforts, figuration) sont offerts.">i</span>
+            <span class="bubble" id="contrats_tiers_bubble">0 crédits</span>
+        </label>
+        <label class="checkbox-container">
             [NOUVEAU] Traitement de la paie (avec notre partenaire POP PAYE)**
             <input type="checkbox" id="option_paie" onclick="calculateTotal()">
             <span class="checkmark"></span>

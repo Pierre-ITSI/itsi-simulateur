@@ -37,7 +37,7 @@ function calculateTotal() {
     const total_credits = tech_total + artist_total + renfort_total + figuration_total + weeks_total;
 
     const signatures_electroniques = document.getElementById('option_signature').checked ? (tech_qty + artist_qty + renfort_qty + figuration_qty) * 2 : 0;
-    const feuilles_de_temps = document.getElementById('option_feuilles').checked && !document.getElementById('option_signature_feuilles').checked ? (weeks_qty - 1) * (tech_qty + renfort_qty) * 2 : 0;
+    const feuilles_de_temps = document.getElementById('option_feuilles').checked && !document.getElementById('option_signature_feuilles').checked ? weeks_qty * (tech_qty + renfort_qty) * 2 : 0;
     const signatures_electroniques_feuilles = document.getElementById('option_signature_feuilles').checked ? (weeks_qty) * (tech_qty + renfort_qty) * 3 : 0;
     const contrats_speciaux = document.getElementById('option_contrats').checked ? 150 : 0;
     const traitement_paie = document.getElementById('option_paie').checked ? (weeks_qty * (tech_qty + artist_qty + renfort_qty + figuration_qty) * 16) : 0;
